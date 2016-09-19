@@ -1,5 +1,10 @@
+html {
+  height: 100%;
+}
 body {
   background-image: url('/img/iceland.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -8,4 +13,8 @@ body {
   padding: 40px;
   border-radius:4px;
   margin-top:10%;
+}
+
+a {
+  color: black;
 }
