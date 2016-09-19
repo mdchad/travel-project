@@ -8,11 +8,12 @@ var isLoggedIn = require('./middleware/isLoggedIn');
 var app = express();
 
 app.set('view engine', 'ejs');
+app.use(ejsLayouts);
+
 app.use(express.static('public'));
 
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended:false}));
-app.use(ejsLayouts);
 app.use(session({
   secret: 'papadop',
   resave: false,
@@ -31,8 +32,9 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+
+app.get('/home', isLoggedIn, function(req, res) {
+  res.render('home');
 });
 
 app.use('/auth', require('./controller/auth'));

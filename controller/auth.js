@@ -9,24 +9,27 @@ router.get('/signup', function(req, res) {
 
 router.post('/signup', function(req, res) {
   var email = req.body.email;
-  var name = req.body.name;
+  var username = req.body.username;
   var password = req.body.password;
 
   db.user.findOrCreate({
     where: { email: email },
     defaults: {
-      name: name,
+      username: username,
       password: password
     }
   }).spread(function(user, created) {
     if (created) {
+      console.log("account created");
+      console.log(user);
       passport.authenticate('local', {
         successRedirect: '/',
         successFlash: 'Account created and logged in'
       })(req, res);
     } else {
+      console.log("email already exist");
       req.flash('error', 'Email already exists');
-      res.redirect('/auth/signup');
+      res.redirect('/auth/login');
     }
   }).catch(function(error) {
     req.flash('error', error.message);
@@ -39,7 +42,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/home',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username and/or password',
   successFlash: 'You have logged in'
