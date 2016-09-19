@@ -8,5 +8,35 @@ var isLoggedIn = require('./middleware/isLoggedIn');
 var app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
-app.use(req)
+app.use(require('morgan')('dev'));
+app.use(bodyParser.urlencoded({ extended:false}));
+app.use(ejsLayouts);
+app.use(session({
+  secret: 'papadop',
+  resave: false,
+  saveUninitialized: true
+}))
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(function(req, res, next){
+  res.locals.currentUser = req.user;
+  res.locals.alerts = req.flash();
+  next();
+});
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
+app.get('/profile', isLoggedIn, function(req, res) {
+  res.render('profile');
+});
+
+app.use('/auth', require('./controller/auth'));
+
+var server = app.listen(process.env.port || 3000);
+
+module.exports = server;
