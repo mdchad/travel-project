@@ -1,29 +1,37 @@
-<div class="container">
+<div class="container center-align">
+  <div id="headtitle">
+    <h1>TravelList</h1>
+  </div>
   <div class="row box1">
-    <form action="/auth/signup" method="POST">
-      <div class="row">
-        <div class="input-field col s10 m6 offset-m3">
-          <label for="authName" class="active"></label>
-          <input id="authName" class="form-control" type="text" name="username" placeholder="Username">
+    <div class="col s12 m8 offset-m2">
+      <div class="card white">
+        <form action="/auth/signup" method="POST">
+          <div class="row">
+            <div class="input-field col s10 m6 offset-m3">
+              <label for="authName" class="active"></label>
+              <input id="authName" class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s10 m6 offset-m3">
+              <label for="authEmail" class="active"></label>
+              <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s10 m6 offset-m3">
+              <label for="authPassword" class="active"></label>
+              <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="row">
+            <input class="cyan darken-4 waves-effect waves-light btn col s6 offset-m3" type="submit">
+          </div>
+        </form>
+        <div class="row center-align prompt">
+          <a href="/auth/login">Existing User? Log In Now</a>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s10 m6 offset-m3">
-          <label for="authEmail" class="active"></label>
-          <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s10 m6 offset-m3">
-          <label for="authPassword" class="active"></label>
-          <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-      <div class="row">
-        <input class="cyan darken-4 waves-effect waves-light btn col s6 offset-m3" type="submit">
-      </div>
-    </form>
-    <div class="row center-align">
-      <a href="/auth/login">Existing User? Log In Now</a>
     </div>
   </div>
 </div>
