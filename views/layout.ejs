@@ -7,55 +7,13 @@
 
     <!-- Latest compiled and minified CSS & JS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link type='text/css' rel="stylesheet" href="/css/materialize.css"></link>
     <link type='text/css' rel="stylesheet" href="/css/style.css"></link>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
   </head>
         <% if (currentUser) { %>
-          <body style="background-image:none;">
-           <nav>
-            <div class="nav-wrapper">
-              <a href="/home" class="brand-logo center">TravelList</a>
-              <!-- <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <!-- <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a><li> -->
-                <li><a href="/auth/logout">Log out</a></li>
-                <li><a href="#"><%= currentUser.username %></a></li>
-                <!-- <li><a href="#">Account</a></li> -->
-              </ul>
-            </div>
-            <!-- <ul id="slide-out" class="side-nav">
-              <li><div class="userView">
-                <img class="background" src="images/office.jpg">
-                <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-              </div></li>
-              <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-              <li><a href="#!">Second Link</a></li>
-              <li><div class="divider"></div></li>
-              <li><a class="subheader">Subheader</a></li>
-              <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
-          </nav>
-          <ul id="slide-out" class="side-nav">
-            <li><div class="userView">
-              <img class="background" src="/img/wallpaper2.jpg">
-              <a href="#!user"><img class="circle" src="/img/irsyad2.jpg"></a>
-              <a href="#!name"><span class="white-text name">John Doe</span></a>
-              <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-            </div></li>
-            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-          </ul>
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-         <!-- </nav> -->
-
-         </body>
+            <%- body %>
           <!-- <h1> welcome <%= currentUser.username %></h1> -->
         <% } else { %>
             <%- body %>

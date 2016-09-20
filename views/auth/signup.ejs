@@ -1,23 +1,29 @@
 <div class="container">
   <div class="row box1">
     <form action="/auth/signup" method="POST">
-      <div class="input-field col s12 m6 offset-m3">
-        <label for="authName" class="active"></label>
-        <input id="authName" class="form-control" type="text" name="username" placeholder="Username">
+      <div class="row">
+        <div class="input-field col s10 m6 offset-m3">
+          <label for="authName" class="active"></label>
+          <input id="authName" class="form-control" type="text" name="username" placeholder="Username">
+        </div>
       </div>
-
-      <div class="input-field col s12 m6 offset-m3">
-        <label for="authEmail" class="active"></label>
-        <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
+      <div class="row">
+        <div class="input-field col s10 m6 offset-m3">
+          <label for="authEmail" class="active"></label>
+          <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
+        </div>
       </div>
-
-      <div class="input-field col s12 m6 offset-m3">
-        <label for="authPassword" class="active"></label>
-        <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
+      <div class="row">
+        <div class="input-field col s10 m6 offset-m3">
+          <label for="authPassword" class="active"></label>
+          <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+      <div class="row">
+        <input class="cyan darken-4 waves-effect waves-light btn col s6 offset-m3" type="submit">
       </div>
-
-      <input class="red accent-2 waves-effect waves-light btn col s6 offset-m3" type="submit">
     </form>
-    <p>Log in now</p>
+    <div class="row center-align">
+      <a href="/auth/login">Existing User? Log In Now</a>
+    </div>
   </div>
 </div>

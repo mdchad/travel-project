@@ -37,6 +37,8 @@ app.get('/home', isLoggedIn, function(req, res) {
   res.render('home');
 });
 
+// app.use('/plan', require('.controller/plan'));
+
 app.use('/auth', require('./controller/auth'));
 
 var server = app.listen(process.env.port || 3000);
