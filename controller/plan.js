@@ -1,13 +1,18 @@
-// var express = require('express');
-// var db = require('../models');
-// var passport = require('../config/ppConfig');
-// var router = express.Router();
-//
-// router.get('/signup', function(req, res) {
-//   res.render('auth/signup');
-// });
-//
-// router.post('/signup', function(req, res) {
+var express = require('express');
+var db = require('../models');
+var passport = require('../config/ppConfig');
+var isLoggedIn = require('../middleware/isLoggedIn');
+var router = express.Router();
+
+router.get('/', isLoggedIn, function(req, res) {
+  res.render('plan/view');
+});
+
+router.get('/add', isLoggedIn, function(req, res) {
+  res.render('plan/create');
+});
+
+// router.post('/add', function(req, res) {
 //   var email = req.body.email;
 //   var username = req.body.username;
 //   var password = req.body.password;
@@ -37,4 +42,4 @@
 //   });
 // });
 //
-// module.exports = router;
+module.exports = router;

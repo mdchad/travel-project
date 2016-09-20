@@ -12,12 +12,50 @@
     <link type='text/css' rel="stylesheet" href="/css/style.css"></link>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
   </head>
+    <!-- <body style="background-image:none; background-color: #eee"> -->
         <% if (currentUser) { %>
-            <%- body %>
+          <body style="background-image:none; background-color: #eee">
+             <nav>
+              <div class="nav-wrapper cyan darken-2">
+                <a href="/home" class="brand-logo center">TravelList</a>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= currentUser.username %><i class="material-icons right">arrow_drop_down</i></a></li>
+                  <!-- Dropdown Structure -->
+                    <ul id="dropdown1" class="dropdown-content">
+                      <li><a href="#!">one</a></li>
+                      <li><a href="#!">two</a></li>
+                      <li class="divider"></li>
+                      <li><a href="auth/logout">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <ul id="slide-out" class="side-nav">
+              <li>
+                <div class="userView">
+                  <img class="background" src="img/wallpaper6.png">
+                  <a href="#!user"><img class="circle" src="img/irsyad2.jpg"></a>
+                  <a href="#!name"><span class="white-text name"><%= currentUser.username %></span></a>
+                  <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                </div>
+              </li>
+              <li><a class="grey-text text-darken-2" href="plan"><i class="material-icons cyan-text">mode_edit</i>Plan</a></li>
+              <li><a class="grey-text text-darken-2" href="#!"><i class="material-icons cyan-text">view_column</i>Explore</a></li>
+
+              <li><div class="divider"></div></li>
+              <li><a class="subheader">Subheader</a></li>
+              <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </ul>
+          </body>
+          <%- body %>
           <!-- <h1> welcome <%= currentUser.username %></h1> -->
         <% } else { %>
             <%- body %>
         <% } %>
+      <!-- </body> -->
+
 
 
 
