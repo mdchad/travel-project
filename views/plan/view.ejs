@@ -1,14 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="card-panel"><a href="add/create" class="btn-floating btn-small waves-effect waves-light cyan"><i class="material-icons">add</i></a>
+    <div class="card-panel"><a href="plan/add" class="btn-floating btn-small waves-effect waves-light cyan"><i class="material-icons">add</i></a>
       <p class="parainline">Add your itinerary</p>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="card-panel cyan">
-      HI
+    <div class="card-panel">
+      <% data.forEach(function(element){%>
+      <div class="collection">
+         <a class="collection-item avatar" href="#">
+           <i class="material-icons circle teal">assignment</i>
+           <span class="title"><%= element.country %></span>
+           <p>$<%= element.budget %>
+           </p>
+         </a>
+       </div>
+       <% }) %>
     </div>
   </div>
 </div>
