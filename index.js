@@ -7,10 +7,12 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var app = express();
 
+app.use(express.static(__dirname + '/public/'));
+
+
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 
-app.use(express.static('public'));
 
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended:false}));
@@ -39,7 +41,10 @@ app.get('/home', isLoggedIn, function(req, res) {
 
 app.use('/plan', require('./controller/plan'));
 
+app.use('/explore', require('./controller/explore'));
+
 app.use('/auth', require('./controller/auth'));
+
 
 var server = app.listen(process.env.port || 3000);
 

@@ -1,5 +1,30 @@
 <div class ="container">
   <div class ="row">
-    HI
+    <div class ="card-panel">
+      <form action="/plan/itinerary/create/<%= data.id %>/list" method="POST">
+        <div class="row">
+          <div class="input-field col s12 m1 offset-m3">
+            <input id="authDay" class="validate" type="number" name="day" placeholder="e.g 1,2">
+            <label for="authDay" class="active">Day</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6 offset-m3">
+            <input id="authActivity" class="validate" type="text" name="activity" placeholder="e.g places, activity">
+            <label for="authActivity" class="active">Activity</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-field col s12 m6 offset-m3">
+            <input id="authActivity" class="validate" type="text" name="activity" placeholder="e.g places, activity">
+            <label for="authActivity" class="active">Activity</label>
+          </div>
+        </div>
+        <div class="row">
+          <input class="cyan darken-4 waves-effect waves-light btn col s6 offset-m3" type="submit">
+        </div>
+      </form>
+    </div>
   </div>
 </div>
