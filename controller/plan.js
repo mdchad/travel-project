@@ -2,6 +2,7 @@ var express = require('express');
 var db = require('../models');
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
+var methodOverride = require('method-override');
 var router = express.Router();
 
 router.get('/itinerary', function(req, res) {
@@ -16,12 +17,31 @@ router.get('/itinerary', function(req, res) {
 });
 
 
-// router.get('/itinerary/delete/:id', function(req, res) {
-//   db.entry.findById(req.params.id).then(function(data) {
-//     // res.json(data)
-//     res.render('plan/edit', {data:data})
-//   })
-// })
+router.get('/itinerary/edit/:id', function(req, res) {
+  db.entry.findById(req.params.id).then(function(data) {
+    // res.json(data)
+    console.log(">>>>>>>>>", data);
+    res.render('plan/edit', {data:data})
+  })
+})
+
+router.post('/itinerary/edit/:id', function(req, res) {
+  console.log(">>>>>>>>>>>>>", req.params.id);
+  db.entry.findById(req.params.id)
+  .then(function(entry) {
+    db.list.update({
+      where: {
+        // day: req.body.day,
+        // activty: req.body.activity,
+        entryId: entry.id.toString()
+      }
+    }).then(function(list) {
+      // res.json({entry:entry, list:list})
+      res.redirect('plan/itinerary', {entry:entry,list: list})
+    })
+  })
+});
+
 
 router.post('/itinerary/delete/:id', function(req, res) {
 
@@ -82,7 +102,8 @@ router.get('/itinerary/:id', function(req, res) {
         entryId: entry.id.toString()
       }
     }).then(function(list) {
-      res.render('plan/read', {list: list})
+      // res.json({entry:entry, list:list})
+      res.render('plan/read', {entry:entry,list: list})
     })
   })
 })

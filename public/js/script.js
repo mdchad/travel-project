@@ -21,7 +21,9 @@ $(document).ready(function() {
       // $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
       //     e.preventDefault(); $(this).parent('div').remove(); x--;
       // })
-
+      $('.collapsible').collapsible({
+        accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+  });
 
     $('ul.tabs').tabs();
   });

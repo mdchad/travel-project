@@ -1,17 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="card-panel">
-      <form action="/plan/itinerary" method="POST">
+      <form action="/plan/itinerary/edit/<%= data.id %>" method="POST">
         <div class="row">
-          <div class="input-field col s12 m3 offset-m3">
+
+          <!-- <div class="input-field col s12 m3 offset-m3">
             <input id="authBudget" class="validate" type="number" name="budget" placeholder="Budget" value="<%= data.budget %>">
             <label for="authBudget" class="active"></label>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="input-field col s12 m6 offset-m3">
-            <input id="authCountry" class="validate" type="text" name="country" placeholder="Country" value="<%= data.country %>">
-            <label for="authCountry" class="active"></label>
+            <input id="authActivity" class="validate" type="text" name="activity" placeholder="Activity" value="">
+            <label for="authActivity" class="active"></label>
           </div>
           <!-- <div class="input-field col s12 m3">
             <input id="authCity" class="validate" type="text" name="city" placeholder="City">

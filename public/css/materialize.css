@@ -5408,7 +5408,8 @@ button.btn-floating {
 
 .collapsible-body p {
   margin: 0;
-  padding: 2rem;
+  padding: 0.3rem;
+  padding-left: 2rem;
 }
 
 .side-nav .collapsible,

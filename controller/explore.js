@@ -14,4 +14,20 @@ router.get('/all', function(req, res) {
 })
 });
 
+router.get('/all/:id', function(req, res) {
+  db.entry.findById(req.params.id)
+  .then(function(entry) {
+    db.list.findAll({
+      where: {
+        // day: req.body.day,
+        // activty: req.body.activity,
+        entryId: entry.id.toString()
+      }
+    }).then(function(list) {
+      // res.json({entry:entry, list:list})
+      res.render('explore/read', {entry:entry,list: list})
+    })
+  })
+})
+
 module.exports = router;

@@ -5,6 +5,8 @@ var passport = require('./config/ppConfig');
 var session = require('express-session');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
+var methodOverride = require('method-override');
+
 var app = express();
 
 app.use(express.static(__dirname + '/public/'));
@@ -46,6 +48,6 @@ app.use('/explore', require('./controller/explore'));
 app.use('/auth', require('./controller/auth'));
 
 
-var server = app.listen(process.env.port || 3000);
+var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;
