@@ -2,10 +2,9 @@ var express = require('express');
 var db = require('../models');
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
-var methodOverride = require('method-override');
 var router = express.Router();
 
-router.get('/itinerary', function(req, res) {
+router.get('/itinerary', isLoggedIn, function(req, res) {
   db.entry.findAll({
     where : {
       username: req.user.username
@@ -17,10 +16,9 @@ router.get('/itinerary', function(req, res) {
 });
 
 
-router.get('/itinerary/edit/:id', function(req, res) {
+router.get('/itinerary/edit/:id',  function(req, res) {
   db.entry.findById(req.params.id).then(function(data) {
     // res.json(data)
-    console.log(">>>>>>>>>", data);
     res.render('plan/edit', {data:data})
   })
 })
@@ -72,7 +70,7 @@ router.post('/itinerary/create', function(req, res) {
 });
 
 
-router.get('/itinerary/create/:id/list', isLoggedIn, function(req, res) {
+router.get('/itinerary/create/:id/list', function(req, res) {
   db.entry.findById(req.params.id).then(function(data) {
   res.render('plan/day', {data:data})
 })
