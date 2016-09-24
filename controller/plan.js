@@ -16,14 +16,14 @@ router.get('/itinerary', isLoggedIn, function(req, res) {
 });
 
 
-router.get('/itinerary/edit/:id',  function(req, res) {
+router.get('/itinerary/edit/:id', isLoggedIn, function(req, res) {
   db.entry.findById(req.params.id).then(function(data) {
     // res.json(data)
     res.render('plan/edit', {data:data})
   })
 })
 
-router.post('/itinerary/edit/:id', function(req, res) {
+router.post('/itinerary/edit/:id', isLoggedIn, function(req, res) {
   console.log(">>>>>>>>>>>>>", req.params.id);
   db.entry.findById(req.params.id)
   .then(function(entry) {
@@ -41,7 +41,7 @@ router.post('/itinerary/edit/:id', function(req, res) {
 });
 
 
-router.post('/itinerary/delete/:id', function(req, res) {
+router.post('/itinerary/delete/:id', isLoggedIn, function(req, res) {
 
    db.entry.destroy({
      where: {id: req.params.id}
@@ -51,14 +51,14 @@ router.post('/itinerary/delete/:id', function(req, res) {
 });
 
 
-router.get('/itinerary/create', function(req, res) {
+router.get('/itinerary/create', isLoggedIn, function(req, res) {
   // db.entry.findById(req.params.id).then(function(data) {
     res.render('plan/create')
   // })
 });
 
 
-router.post('/itinerary/create', function(req, res) {
+router.post('/itinerary/create', isLoggedIn, function(req, res) {
   db.entry.create({
       username: req.user.username,
       country: req.body.country,
@@ -70,13 +70,13 @@ router.post('/itinerary/create', function(req, res) {
 });
 
 
-router.get('/itinerary/create/:id/list', function(req, res) {
+router.get('/itinerary/create/:id/list', isLoggedIn, function(req, res) {
   db.entry.findById(req.params.id).then(function(data) {
   res.render('plan/day', {data:data})
 })
 });
 
-router.post('/itinerary/create/:id/list', function(req, res) {
+router.post('/itinerary/create/:id/list', isLoggedIn, function(req, res) {
   // var some = req.params.id
   db.entry.findById(req.params.id).then(function (foundEntry) {
 
@@ -90,7 +90,7 @@ router.post('/itinerary/create/:id/list', function(req, res) {
   })
 });
 
-router.get('/itinerary/:id', function(req, res) {
+router.get('/itinerary/:id', isLoggedIn, function(req, res) {
   db.entry.findById(req.params.id)
   .then(function(entry) {
     db.list.findAll({
