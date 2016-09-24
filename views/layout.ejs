@@ -51,8 +51,8 @@
           <%- body %>
           <!-- <h1> welcome <%= currentUser.username %></h1> -->
         <% } else { %>
+          <% include partials/alerts %>
             <%- body %>
-            <% include partials/alerts %>
         <% } %>
 
 
