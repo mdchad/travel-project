@@ -25,19 +25,12 @@ router.get('/itinerary/edit/:id', isLoggedIn, function(req, res) {
 
 router.post('/itinerary/edit/:id', isLoggedIn, function(req, res) {
   console.log(">>>>>>>>>>>>>", req.params.id);
-  db.entry.findById(req.params.id)
-  .then(function(entry) {
-    db.list.update({
-      where: {
-        // day: req.body.day,
-        // activty: req.body.activity,
-        entryId: entry.id.toString()
-      }
-    }).then(function(list) {
+  db.entry.findById(req.params.id, {
+    include: [db.list]
+  }).then(function(data) {
       // res.json({entry:entry, list:list})
-      res.redirect('plan/itinerary', {entry:entry,list: list})
+      res.redirect('plan/itinerary', {data:data})
     })
-  })
 });
 
 
